@@ -1,0 +1,14 @@
+services:
+  # Serviço do Backend (API)
+  app:
+    # Constrói a imagem a partir do Dockerfile no diretório atual ('.').
+    build: .
+    # Define um nome customizado para o container para fácil identificação.
+    container_name: api
+    # Mapeia a porta 8000 do container (usada pelo uvicorn) para a porta 8000 do seu computador.
+    ports:
+      - "8000:8000"
+    # Monta o código-fonte local dentro do container para desenvolvimento com live-reload.
+    volumes:
+      - .:/app
+    # Conecta o serviço à nossa rede customizada.
